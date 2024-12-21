@@ -1,0 +1,7 @@
+history.bin
+__pycache__/
+test.py
+build/
+dist/
+Output/
+main.spec
