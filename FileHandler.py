@@ -2,6 +2,7 @@ from tkinter import messagebox
 from PIL import Image
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
+from textwrap import wrap
 
 
 class FileHandler:
@@ -30,7 +31,8 @@ class FileHandler:
                 text_object = pdf.beginText(50, 800)
 
                 for line in text.split("\n"):
-                    text_object.textLine(line)
+                    for wrapped_line in wrap(line, 100):
+                        text_object.textLine(wrapped_line)
 
                 pdf.drawText(text_object)
                 pdf.save()
